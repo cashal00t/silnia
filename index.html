@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var zadanie = parseInt(prompt(`Typ silni:'
+1. rekurencyjny
+2.iteracyjny
+3. sortowanie i wyznaczanie indexu minimalnej wartości
+4. silniaaa
+`));
+
+        switch (zadanie) {
+
+            case 1:
+                function silnia(x) {
+                    if (x > 1)
+                        return x * silnia(x - 1);
+                    else
+                        return 1;
+
+                }
+                const n = parseInt(prompt("podaj n:"));
+                const k = parseInt(prompt("podaj k:"));
+
+                const result = silnia(n) / (silnia(k) * silnia(n - k));
+
+                document.write("Wynikiem dwumianu Newtona jest:" + result);
+
+                break;
+            case 2:
+
+                var i = 1;
+                var s = 1;
+
+                function silni(s) {
+
+                    var i = 1;
+                    for (i = s; i > 1; i--) {
+                        s = s * i;
+                    }
+                    return s;
+                }
+                var ni = parseInt(prompt("podaj n:"));
+                var ki = parseInt(prompt("podaj k:"));
+
+                var resulti = silni(ni) / (silni(ki) * silni(ni - ki));
+
+                document.write("Wynikiem dwumianu Newtona jest:" + resulti);
+
+
+                break;
+
+            case 3:
+
+
+                function minimum(tab, index) {
+                    let min = tab[index];
+                    let minindex = index;
+                    for (let i = index + 1; i < tab.length; i++) {
+                        if (tab[i] < min) {
+                            min = tab[i];
+                            minindex = i;
+                        }
+                    }
+                    return minindex
+
+                }
+
+                function sortowanie(tab) {
+                    for (let i = 0; i < tab.length - 1; i++) {
+                        const minindex = minimum(tab, i);
+                        var a = tab[i];
+                        tab[i] = tab[minindex];
+                        tab[minindex] = a;
+                    }
+                    return tab
+                }
+                let tab = [5, 7, 8, 9, 0, 8, 2, 1, 2, 3, 4, 5, 6];
+
+                document.write(sortowanie(tab) + ' ');
+                document.write("Wartość minindex: ");
+                document.write(minimum(tab, 0));
+
+
+
+
+
+
+
+
+
+
+                break;
+
+            case 4:
+
+                function silnia3(n) {
+                    if (n < 2) {
+                        return 1
+                    }
+                    return n * silnia3(n - 1)
+
+                }
+                function silniaIt(n) {
+                    let i = 1;
+                    let s = 1;
+                    while (i <= n) s *= i++;
+                    return s;
+                }
+
+
+
+
+
+                const l = parseInt(prompt('Podaj n'));
+                const c = parseInt(prompt('Podaj k'));
+                document.write(silnia3(l) / (silnia3(c) * silnia3(l - c)) + ",");
+                document.write(silniaIt(l) / (silniaIt(c) * silniaIt(l - c)));
+
+
+                break;
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+    </script>
+</body>
